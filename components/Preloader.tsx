@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export function Preloader() {
@@ -9,74 +10,319 @@ export function Preloader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsComplete(true);
-    }, 3600);
+    }, 4200);
 
     return () => clearTimeout(timer);
   }, []);
 
-  if (isComplete) return null;
-
   return (
-    <motion.div
-      className="fixed inset-0 bg-background z-[9999] flex items-center justify-center"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: isComplete ? 0 : 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      style={{ pointerEvents: isComplete ? 'none' : 'auto' }}
-    >
-      <div className="flex flex-col items-center gap-8">
-        {/* Logo Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
-        >
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chai%20logo-gMmE5bBu1j9Y6S6xgsvaI50VFSrLuN.png"
-            alt="Chaibaaz Logo"
-            className="h-32 object-contain"
-          />
-        </motion.div>
+    <AnimatePresence>
 
-        {/* Tagline */}
+      {!isComplete && (
+
         <motion.div
-          className="flex gap-2 text-sm tracking-widest text-foreground"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+          className="
+            fixed
+            inset-0
+            z-[99999]
+            overflow-hidden
+            flex
+            items-center
+            justify-center
+            bg-[#0B0705]
+          "
+          initial={{ opacity: 1 }}
+          exit={{
+            opacity: 0,
+            scale: 1.03,
+            filter: 'blur(10px)',
+          }}
+          transition={{
+            duration: 1.2,
+            ease: [0.16, 1, 0.3, 1],
+          }}
         >
-          {['SIP', 'CHILL', 'REPEAT'].map((word, idx) => (
-            <motion.span
-              key={word}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+
+          {/* ───────────────── VIDEO BACKGROUND ───────────────── */}
+
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="
+    absolute
+    inset-0
+    w-full
+    h-full
+    object-cover
+    opacity-[0.45]
+    scale-[1.02]
+  "
+>
+  <source
+    src="/videos/chai-cart.mp4"
+    type="video/mp4"
+  />
+</video>
+
+{/* DARK CINEMATIC OVERLAY */}
+
+
+{/* GOLD LIGHT */}
+<div
+  className="absolute inset-0"
+  style={{
+    background:
+      "radial-gradient(circle at 50% 40%, rgba(201,164,106,0.16), transparent 45%)",
+  }}
+/>
+
+{/* CINEMATIC VIGNETTE */}
+<div
+  className="absolute inset-0"
+  style={{
+    background:
+      "radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.92) 100%)",
+  }}
+/>
+
+{/* NOISE */}
+<div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('/noise.png')]" />
+         
+          {/* ───────────────── CONTENT ───────────────── */}
+
+          <div className="relative z-20 flex flex-col items-center">
+
+            {/* LOGO */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.92,
+                y: 30,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
               transition={{
-                delay: 0.8 + idx * 0.2,
-                duration: 0.7,
+                duration: 1.4,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="relative"
+            >
+
+              {/* GOLD GLOW */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  scale-150
+                "
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(201,164,106,0.18), transparent 70%)",
+                  filter: 'blur(35px)',
+                }}
+              />
+
+              <Image
+                src="/chai-logo-white.png"
+                alt="Chaibaaz"
+                width={320}
+                height={120}
+                priority
+                className="
+                  relative
+                  z-10
+                  object-contain
+                  w-[220px]
+                  md:w-[300px]
+                  h-auto
+                "
+              />
+
+            </motion.div>
+
+            {/* DIVIDER */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                scaleX: 0,
+              }}
+              animate={{
+                opacity: 1,
+                scaleX: 1,
+              }}
+              transition={{
+                delay: 0.7,
+                duration: 1,
+                ease: 'easeOut',
+              }}
+              className="
+                mt-10
+                w-32
+                h-px
+                bg-gradient-to-r
+                from-transparent
+                via-[#C9A46A]
+                to-transparent
+              "
+            />
+
+            {/* TAGLINE */}
+            <motion.div
+              className="
+                flex
+                items-center
+                gap-3
+                mt-8
+                text-white/70
+              "
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 0.9,
+                duration: 1,
               }}
             >
-              {word}
-              {idx < 2 && <span className="mx-1">|</span>}
-            </motion.span>
-          ))}
+
+              {['SIP', 'CHILL', 'REPEAT'].map((word, idx) => (
+                <motion.div
+                  key={word}
+                  initial={{
+                    opacity: 0,
+                    y: 10,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 1 + idx * 0.2,
+                    duration: 0.7,
+                  }}
+                  className="
+                    flex
+                    items-center
+                    gap-3
+                  "
+                >
+
+                  <span
+                    className="
+                      text-[11px]
+                      uppercase
+                      tracking-[0.45em]
+                    "
+                  >
+                    {word}
+                  </span>
+
+                  {idx < 2 && (
+                    <span className="text-[#C9A46A]/70">
+                      ✦
+                    </span>
+                  )}
+
+                </motion.div>
+              ))}
+
+            </motion.div>
+
+            {/* PROGRESS BAR */}
+            <motion.div
+              className="
+                relative
+                mt-14
+                w-52
+                h-[2px]
+                overflow-hidden
+                bg-white/10
+                rounded-full
+              "
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              transition={{
+                delay: 1,
+                duration: 1,
+              }}
+            >
+
+              {/* GLOW */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                "
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(201,164,106,0.18), transparent 70%)",
+                  filter: 'blur(8px)',
+                }}
+              />
+
+              {/* FILL */}
+              <motion.div
+                className="
+                  absolute
+                  left-0
+                  top-0
+                  h-full
+                  rounded-full
+                "
+                style={{
+                  background:
+                    "linear-gradient(90deg, #8A5B22 0%, #E2C48D 50%, #C9A46A 100%)",
+                }}
+                initial={{
+                  width: 0,
+                }}
+                animate={{
+                  width: '100%',
+                }}
+                transition={{
+                  duration: 3.5,
+                  ease: 'easeInOut',
+                }}
+              />
+
+            </motion.div>
+
+            {/* LOADING TEXT */}
+            <motion.p
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              transition={{
+                delay: 1.2,
+                duration: 1,
+              }}
+              className="
+                mt-6
+                text-[10px]
+                uppercase
+                tracking-[0.45em]
+                text-white/35
+              "
+            >
+              Crafting luxury experiences
+            </motion.p>
+
+          </div>
+
         </motion.div>
 
-        {/* Progress Bar */}
-        <motion.div
-          className="w-40 h-1 bg-border rounded-full overflow-hidden mt-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          <motion.div
-            className="h-full bg-accent"
-            initial={{ width: 0 }}
-            animate={{ width: '100%' }}
-            transition={{ duration: 2.8, ease: 'easeInOut' }}
-          />
-        </motion.div>
-      </div>
-    </motion.div>
+      )}
+
+    </AnimatePresence>
   );
 }
