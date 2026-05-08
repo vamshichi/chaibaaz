@@ -10,7 +10,7 @@ export function Preloader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsComplete(true);
-    }, 6200);
+    }, 18000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -61,7 +61,7 @@ export function Preloader() {
   "
 >
   <source
-    src="/videos/chai-cart.mp4"
+    src="/videos/preloader.mp4"
     type="video/mp4"
   />
 </video>
@@ -95,7 +95,7 @@ export function Preloader() {
           <div className="relative z-20 flex flex-col items-center">
 
             {/* LOGO */}
-            <motion.div
+            {/* <motion.div
               initial={{
                 opacity: 0,
                 scale: 0.92,
@@ -114,7 +114,7 @@ export function Preloader() {
             >
 
               {/* GOLD GLOW */}
-              <div
+              {/* <div
                 className="
                   absolute
                   inset-0
@@ -125,9 +125,9 @@ export function Preloader() {
                     "radial-gradient(circle, rgba(201,164,106,0.18), transparent 70%)",
                   filter: 'blur(35px)',
                 }}
-              />
+              /> */}
 
-              <Image
+              {/* <Image
                 src="/chai-logo-white.png"
                 alt="Chaibaaz"
                 width={320}
@@ -141,12 +141,12 @@ export function Preloader() {
                   md:w-[300px]
                   h-auto
                 "
-              />
+              /> */}
 
-            </motion.div>
+            {/* </motion.div>  */}
 
             {/* DIVIDER */}
-            <motion.div
+            {/* <motion.div
               initial={{
                 opacity: 0,
                 scaleX: 0,
@@ -169,10 +169,10 @@ export function Preloader() {
                 via-[#C9A46A]
                 to-transparent
               "
-            />
+            /> */}
 
             {/* TAGLINE */}
-            <motion.div
+            {/* <motion.div
               className="
                 flex
                 items-center
@@ -229,10 +229,10 @@ export function Preloader() {
                 </motion.div>
               ))}
 
-            </motion.div>
+            </motion.div> */}
 
             {/* PROGRESS BAR */}
-            <motion.div
+            {/* <motion.div
               className="
                 relative
                 mt-14
@@ -255,7 +255,7 @@ export function Preloader() {
             >
 
               {/* GLOW */}
-              <div
+              {/* <div
                 className="
                   absolute
                   inset-0
@@ -265,10 +265,10 @@ export function Preloader() {
                     "radial-gradient(circle, rgba(201,164,106,0.18), transparent 70%)",
                   filter: 'blur(8px)',
                 }}
-              />
+              /> */}
 
               {/* FILL */}
-              <motion.div
+              {/* <motion.div
                 className="
                   absolute
                   left-0
@@ -290,12 +290,12 @@ export function Preloader() {
                   duration: 3.5,
                   ease: 'easeInOut',
                 }}
-              />
+              /> */}
 
-            </motion.div>
+            {/* </motion.div>  */}
 
             {/* LOADING TEXT */}
-            <motion.p
+            {/* <motion.p
               initial={{
                 opacity: 0,
               }}
@@ -315,7 +315,7 @@ export function Preloader() {
               "
             >
               Crafting luxury experiences
-            </motion.p>
+            </motion.p> */}
 
           </div>
 
