@@ -317,7 +317,7 @@ export function Footer() {
                         "'Cormorant Garamond', serif",
                     }}
                   >
-                    +1 (234) 567-8900
+                    +1 (416) 729-8787
                   </p>
                 </div>
 

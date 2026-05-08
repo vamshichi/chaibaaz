@@ -57,6 +57,11 @@ const EVENT_TYPES = [
     icon: "◈",
     sub: "Exclusive gatherings & soirées",
   },
+  {
+    value: "Concerts",
+    icon: "⬢",
+    sub: "Premium live music & entertainment events",
+  },
 ];
 
 const GUEST_RANGES = [

@@ -27,20 +27,20 @@ const TOKEN = {
 ───────────────────────────────────────────── */
 const GALLERY = [
   {
-    image: '/images/chai-cart.jpg',
+    image: '/images/gallery-4.jpg',
     index: '01',
     label: 'Weddings',
     title: 'Luxury\nWedding Setup',
     description:
       'Elegant chai experiences crafted for unforgettable wedding celebrations, where every cup tells a story of love and tradition.',
     features: [
-      'Premium décor styling',
+      'Premium decor styling',
       'Traditional chai service',
       'Guest-focused experience',
     ],
   },
   {
-    image: '/images/gallery-2.jpg',
+    image: '/images/gallery-6.jpg',
     index: '02',
     label: 'Corporate',
     title: 'Corporate\nExperience',
@@ -53,7 +53,7 @@ const GALLERY = [
     ],
   },
   {
-    image: '/images/event-catering.jpg',
+    image: '/images/gallery-8.jpg',
     index: '03',
     label: 'Private',
     title: 'Private\nCelebrations',
@@ -66,7 +66,7 @@ const GALLERY = [
     ],
   },
   {
-    image: '/images/gallery-4.jpg',
+    image: '/images/gallery-9.jpg',
     index: '04',
     label: 'Cultural',
     title: 'Cultural\nEvents',

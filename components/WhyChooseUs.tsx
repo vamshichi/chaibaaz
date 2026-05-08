@@ -79,7 +79,7 @@ export default function WhyChooseUs() {
 <div
   className="absolute inset-0 bg-cover bg-center scale-105"
   style={{
-    backgroundImage: "url('/images/whyimage.png')",
+    backgroundImage: "url('/images/whyimage.jpeg')",
   }}
 />
 
@@ -196,7 +196,7 @@ export default function WhyChooseUs() {
           "
         >
           Chaibaaz transforms traditional chai into an elevated luxury
-          experience — blending authentic flavors, refined presentation,
+          experience blending authentic flavors, refined presentation,
           and immersive hospitality designed for unforgettable events.
         </motion.p>
 

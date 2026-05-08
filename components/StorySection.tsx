@@ -132,7 +132,7 @@ export default function AboutSection() {
                 <p className="text-[#5B4636] leading-relaxed text-[15px] md:text-[17px]">
                   Chaibaaz curates luxury chai catering experiences
                   for weddings, private celebrations, corporate
-                  soirées, and premium cultural gatherings —
+                  soirees, concerts, and premium cultural gatherings,
                   blending timeless hospitality with elevated design.
                 </p>
               </motion.div>
@@ -148,14 +148,14 @@ export default function AboutSection() {
                 </p>
                 <p className="text-[#5B4636] leading-relaxed text-[15px] md:text-[17px]">
                   Every experience is designed with warmth,
-                  elegance, and intention — transforming
+                  elegance, and intention transforming
                   traditional chai into a refined luxury ritual.
                 </p>
               </motion.div>
 
             </div>
 
-            <motion.button
+            {/* <motion.button
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -181,7 +181,7 @@ export default function AboutSection() {
               }}
             >
               Explore Experience
-            </motion.button>
+            </motion.button> */}
 
           </motion.div>
 
@@ -211,14 +211,14 @@ export default function AboutSection() {
               "
             >
               <video
-  autoPlay
-  muted
-  loop
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover"
->
-  <source src="/videos/chai.mp4" type="video/mp4" />
-</video>
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/videos/chai.mp4" type="video/mp4" />
+              </video>
 
               <div className="absolute inset-0 bg-[#2A160D]/10" />
 

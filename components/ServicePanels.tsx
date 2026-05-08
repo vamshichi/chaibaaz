@@ -19,21 +19,21 @@ const SERVICES = [
     title: 'Luxury Chai Cart',
     description:
       'Elegant live chai stations crafted for weddings, soirées, and unforgettable celebrations.',
-    image: '/images/chai-cart.jpg',
+    image: '/images/chaicart.jpeg',
   },
   {
     number: '02',
     title: 'Event Catering',
     description:
       'Premium hospitality experiences curated for grand corporate and luxury private events.',
-    image: '/images/event-catering.jpg',
+    image: '/images/gallery-9.jpg',
   },
   {
     number: '03',
     title: 'Custom Blends',
     description:
       'Signature handcrafted chai blends designed exclusively for your guests.',
-    image: '/images/custom-blends.jpg',
+    image: '/images/whyimage.jpeg',
   },
   {
     number: '04',

@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Experience", href: "#experience" },
   { label: "Services", href: "#services" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "#booking" },
 ];
 
 // ─────────────────────────────────────────────
@@ -380,7 +380,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <Magnetic>
-
+              <a href="/#booking">
               <motion.button
                 onClick={() => scrollToSection("#contact")}
                 className="
@@ -419,7 +419,7 @@ export default function Navbar() {
               >
                 Book Experience
               </motion.button>
-
+              </a>
             </Magnetic>
 
             {/* MOBILE BUTTON */}

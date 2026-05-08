@@ -13,7 +13,7 @@ import {
 const BACKGROUNDS = [
   "/images/herobg-1.png",
   "/images/chai-cart.jpg",
-  "/images/event-catering.jpg",
+  "/images/gallery-9.jpg",
 ];
 
 const STORY = [
@@ -149,6 +149,7 @@ function CtaPanel({ progress }: { progress: MotionValue<number> }) {
       <p className="text-white/60 mb-8 tracking-[0.4em] text-[10px] uppercase">
         Your moment awaits
       </p>
+      <a href="/#booking">
       <motion.button
         className="px-10 py-4 rounded-full text-[#2A160D] tracking-[0.25em] text-xs uppercase overflow-hidden relative"
         style={{
@@ -163,6 +164,7 @@ function CtaPanel({ progress }: { progress: MotionValue<number> }) {
       >
         Book Experience
       </motion.button>
+      </a>
     </motion.div>
   );
 }
