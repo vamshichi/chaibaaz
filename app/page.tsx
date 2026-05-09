@@ -15,6 +15,7 @@ import { Footer } from '@/components/Footer';
 import FinalCTA from '@/components/finalCTA';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import { FadeDivider } from '@/components/FadeDivider';
+import Gallery from '@/components/MainGallery';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -54,11 +55,14 @@ export default function Home() {
         <section id="services">
           <ServicePanels />
         </section>
-
+        
         <section id="gallery">
-          <GallerySection />
+        <Gallery />
         </section>
-
+        
+          <GallerySection />
+      
+        
         {/* <FadeDivider variant="lightToDark" /> */}
 
         <section id="testimonials">
