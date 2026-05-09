@@ -217,7 +217,7 @@ export default function AboutSection() {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src="/videos/chai.mp4" type="video/mp4" />
+                <source src="/gallery/g6.mp4" type="video/mp4" />
               </video>
 
               <div className="absolute inset-0 bg-[#2A160D]/10" />

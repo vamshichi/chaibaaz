@@ -9,17 +9,17 @@ const galleryItems = [
   {
     id: 1,
     type: "image",
-    src: "/gallery/g1.jpg",
+    src: "/gallery/g1.png",
   },
   {
     id: 2,
     type: "image",
-    src: "/gallery/g2.jpg",
+    src: "/gallery/g2.png",
   },
   {
     id: 3,
     type: "image",
-    src: "/gallery/g7.jpg",
+    src: "/gallery/g7.png",
   },
   {
     id: 4,
