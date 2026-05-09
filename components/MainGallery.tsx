@@ -24,7 +24,7 @@ const galleryItems = [
   {
     id: 4,
     type: "image",
-    src: "/gallery/g9.jpg",
+    src: "/gallery/g9.png",
   },
   {
     id: 5,
