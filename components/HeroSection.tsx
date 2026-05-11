@@ -13,7 +13,7 @@ import {
 const BACKGROUNDS = [
   "/images/herobg-1.png",
   "/images/chai-cart.jpg",
-  "/images/gallery-9.jpg",
+  "/gallery/event.jpg",
 ];
 
 const STORY = [

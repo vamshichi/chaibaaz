@@ -27,7 +27,7 @@ const TOKEN = {
 ───────────────────────────────────────────── */
 const GALLERY = [
   {
-    image: '/images/gallery-4.jpg',
+    image: '/gallery/event.jpg',
     index: '01',
     label: 'Weddings',
     title: 'Luxury\nWedding Setup',
@@ -40,7 +40,7 @@ const GALLERY = [
     ],
   },
   {
-    image: '/images/gallery-6.jpg',
+    image: '/gallery/g13.png',
     index: '02',
     label: 'Corporate',
     title: 'Corporate\nExperience',
@@ -65,19 +65,19 @@ const GALLERY = [
       'Personalised service',
     ],
   },
-  {
-    image: '/gallery/event.jpg',
-    index: '04',
-    label: 'Cultural',
-    title: 'Cultural\nEvents',
-    description:
-      'Authentic chai experiences rooted in tradition and heritage, honouring the art of chai-making across generations.',
-    features: [
-      'Cultural presentation',
-      'Authentic recipes',
-      'Traditional aesthetics',
-    ],
-  },
+  // {
+  //   image: '/gallery/event.jpg',
+  //   index: '04',
+  //   label: 'Cultural',
+  //   title: 'Cultural\nEvents',
+  //   description:
+  //     'Authentic chai experiences rooted in tradition and heritage, honouring the art of chai-making across generations.',
+  //   features: [
+  //     'Cultural presentation',
+  //     'Authentic recipes',
+  //     'Traditional aesthetics',
+  //   ],
+  // },
 ] as const;
 
 const COUNT = GALLERY.length;

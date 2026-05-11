@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { Preloader } from '@/components/Preloader';
+import Preloader  from '@/components/Preloader';
 import CustomCursor  from '@/components/CustomCursor';
 import Navigation  from '@/components/Navigation';
 import HeroSection  from '@/components/HeroSection';
