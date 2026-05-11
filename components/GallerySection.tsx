@@ -66,7 +66,7 @@ const GALLERY = [
     ],
   },
   {
-    image: '/gallery/event.png',
+    image: '/gallery/event.jpg',
     index: '04',
     label: 'Cultural',
     title: 'Cultural\nEvents',
