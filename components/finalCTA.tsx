@@ -8,47 +8,41 @@ import Magnetic from './Magnetic';
    DESIGN TOKENS
 ───────────────────────────────────────────── */
 const TOKEN = {
-  cream: '#F6F0E7',
-  creamMid: '#EFE6D8',
+  cream:     '#F6F0E7',
+  creamMid:  '#EFE6D8',
   brownDark: '#2A160D',
-  brownMid: '#5B4636',
+  brownMid:  '#5B4636',
   brownSoft: '#7A6A5A',
-  gold: '#C9A46A',
-  goldMid: '#B88B4A',
+  gold:      '#C9A46A',
+  goldMid:   '#B88B4A',
 };
 
 /* ─────────────────────────────────────────────
    STAT ITEM
 ───────────────────────────────────────────── */
-function StatItem({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function StatItem({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p
         style={{
           fontFamily: "'Cinzel', serif",
           fontSize: 9,
-          letterSpacing: '0.38em',
+          // FIX: tighter tracking on mobile to prevent overflow
+          letterSpacing: '0.28em',
           textTransform: 'uppercase',
           color: TOKEN.goldMid,
-          marginBottom: 10,
+          marginBottom: 8,
         }}
       >
         {label}
       </p>
-
       <p
         style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 300,
-          fontSize: '1.2rem',
+          fontSize: '1.1rem',
           color: TOKEN.brownDark,
-          lineHeight: 1.3,
+          lineHeight: 1.4,
         }}
       >
         {value}
@@ -59,23 +53,24 @@ function StatItem({
 
 /* ─────────────────────────────────────────────
    CIRCULAR CTA BUTTON
+   FIX: size driven by CSS clamp so it scales
+   from 220 px on phones to 320 px on desktop.
 ───────────────────────────────────────────── */
 function CircularButton() {
+  // clamp the button diameter via a CSS variable on the wrapper
+  const SIZE = 'clamp(220px, 55vw, 320px)';
+
   return (
     <Magnetic>
       <motion.button
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.97 }}
-        transition={{
-          type: 'spring',
-          stiffness: 220,
-          damping: 18,
-        }}
+        transition={{ type: 'spring', stiffness: 220, damping: 18 }}
         aria-label="Inquire about a Chaibaaz experience"
         style={{
           position: 'relative',
-          width: 320,
-          height: 320,
+          width: SIZE,
+          height: SIZE,
           borderRadius: '50%',
           display: 'flex',
           alignItems: 'center',
@@ -86,43 +81,22 @@ function CircularButton() {
           cursor: 'pointer',
         }}
       >
-        {/* OUTER GOLD RING */}
+        {/* OUTER CONIC GLOW */}
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{
-            duration: 24,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
+          transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
           style={{
             position: 'absolute',
             inset: 0,
             borderRadius: '50%',
-            background:
-              'conic-gradient(from 180deg, transparent, rgba(201,164,106,0.28), transparent)',
+            background: 'conic-gradient(from 180deg, transparent, rgba(201,164,106,0.28), transparent)',
             filter: 'blur(1px)',
           }}
         />
 
-        {/* RING */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 10,
-            borderRadius: '50%',
-            border: `1px solid rgba(201,164,106,0.35)`,
-          }}
-        />
-
-        {/* INNER RING */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 28,
-            borderRadius: '50%',
-            border: `1px solid rgba(201,164,106,0.18)`,
-          }}
-        />
+        {/* RINGS */}
+        <div style={{ position: 'absolute', inset: 10, borderRadius: '50%', border: '1px solid rgba(201,164,106,0.35)' }} />
+        <div style={{ position: 'absolute', inset: 28, borderRadius: '50%', border: '1px solid rgba(201,164,106,0.18)' }} />
 
         {/* GLASS CENTER */}
         <div
@@ -130,51 +104,35 @@ function CircularButton() {
             position: 'absolute',
             inset: 46,
             borderRadius: '50%',
-            background: `
-              linear-gradient(
-                145deg,
-                rgba(255,255,255,0.58),
-                rgba(255,255,255,0.22)
-              )
-            `,
+            background: 'linear-gradient(145deg, rgba(255,255,255,0.58), rgba(255,255,255,0.22))',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
             border: '1px solid rgba(255,255,255,0.28)',
-            boxShadow: `
-              inset 0 1px 1px rgba(255,255,255,0.4),
-              0 25px 80px rgba(42,22,13,0.12)
-            `,
+            boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.4), 0 25px 80px rgba(42,22,13,0.12)',
           }}
         />
 
-        {/* GOLD AMBIENT GLOW */}
+        {/* AMBIENT GLOW */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
             borderRadius: '50%',
-            background:
-              'radial-gradient(circle, rgba(201,164,106,0.18), transparent 65%)',
+            background: 'radial-gradient(circle, rgba(201,164,106,0.18), transparent 65%)',
             filter: 'blur(40px)',
           }}
         />
 
         {/* CONTENT */}
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 10,
-            textAlign: 'center',
-          }}
-        >
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <p
             style={{
               fontFamily: "'Cinzel', serif",
               fontSize: 9,
-              letterSpacing: '0.45em',
+              letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color: TOKEN.goldMid,
-              marginBottom: 18,
+              marginBottom: 14,
             }}
           >
             Reserve Experience
@@ -184,7 +142,8 @@ function CircularButton() {
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 300,
-              fontSize: 'clamp(2.6rem, 5vw, 4rem)',
+              // FIX: lower floor so text fits inside smaller button on mobile
+              fontSize: 'clamp(2rem, 8vw, 4rem)',
               lineHeight: 1,
               color: TOKEN.brownDark,
             }}
@@ -192,20 +151,8 @@ function CircularButton() {
             Inquire
           </h3>
 
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: 22,
-            }}
-          >
-            <div
-              style={{
-                width: 58,
-                height: 1,
-                background: TOKEN.gold,
-              }}
-            />
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
+            <div style={{ width: 48, height: 1, background: TOKEN.gold }} />
           </div>
         </div>
       </motion.button>
@@ -217,90 +164,51 @@ function CircularButton() {
    MAIN EXPORT
 ───────────────────────────────────────────── */
 export default function FinalCTA() {
-  const leftRef = useRef<HTMLDivElement>(null);
+  const leftRef  = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
-  const footRef = useRef<HTMLDivElement>(null);
+  const footRef  = useRef<HTMLDivElement>(null);
 
-  const leftInView = useInView(leftRef, {
-    once: true,
-    margin: '-80px 0px',
-  });
-
-  const rightInView = useInView(rightRef, {
-    once: true,
-    margin: '-80px 0px',
-  });
-
-  const footInView = useInView(footRef, {
-    once: true,
-    margin: '-40px 0px',
-  });
+  const leftInView  = useInView(leftRef,  { once: true, margin: '-80px 0px' });
+  const rightInView = useInView(rightRef, { once: true, margin: '-80px 0px' });
+  const footInView  = useInView(footRef,  { once: true, margin: '-40px 0px' });
 
   return (
     <section
       id="contact"
       aria-labelledby="cta-heading"
+      // FIX: padding responsive via Tailwind — 72px top/bottom on mobile, 180px on desktop
+      className="relative overflow-hidden py-20 sm:py-28 lg:py-[180px] px-5 sm:px-8"
       style={{
-        position: 'relative',
-        overflow: 'hidden',
-        padding: '180px 24px',
         backgroundColor: TOKEN.cream,
-
         backgroundImage: `
-          linear-gradient(
-            rgba(246,240,231,0.88),
-            rgba(239,230,216,0.92)
-          ),
+          linear-gradient(rgba(246,240,231,0.88), rgba(239,230,216,0.92)),
           url('/images/luxury-paper-texture.jpg')
         `,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* PREMIUM CLASSIC OVERLAY */}
+      {/* PREMIUM OVERLAY */}
       <div
         aria-hidden
+        className="absolute inset-0 pointer-events-none"
         style={{
-          position: 'absolute',
-          inset: 0,
           background: `
-            radial-gradient(
-              circle at top left,
-              rgba(201,164,106,0.16),
-              transparent 32%
-            ),
-
-            radial-gradient(
-              circle at bottom right,
-              rgba(184,139,74,0.14),
-              transparent 38%
-            ),
-
-            linear-gradient(
-              135deg,
-              rgba(255,255,255,0.45),
-              transparent 40%,
-              rgba(42,22,13,0.03) 100%
-            )
+            radial-gradient(circle at top left, rgba(201,164,106,0.16), transparent 32%),
+            radial-gradient(circle at bottom right, rgba(184,139,74,0.14), transparent 38%),
+            linear-gradient(135deg, rgba(255,255,255,0.45), transparent 40%, rgba(42,22,13,0.03) 100%)
           `,
           mixBlendMode: 'multiply',
         }}
       />
 
-      {/* VINTAGE GRAIN */}
+      {/* GRAIN */}
       <div
         aria-hidden
+        className="absolute inset-0 pointer-events-none"
         style={{
-          position: 'absolute',
-          inset: 0,
           opacity: 0.06,
-          backgroundImage: `
-            radial-gradient(
-              rgba(42,22,13,0.15) 0.7px,
-              transparent 0.7px
-            )
-          `,
+          backgroundImage: 'radial-gradient(rgba(42,22,13,0.15) 0.7px, transparent 0.7px)',
           backgroundSize: '7px 7px',
         }}
       />
@@ -308,77 +216,44 @@ export default function FinalCTA() {
       {/* VIGNETTE */}
       <div
         aria-hidden
-        style={{
-          position: 'absolute',
-          inset: 0,
-          boxShadow: 'inset 0 0 180px rgba(42,22,13,0.10)',
-        }}
+        className="absolute inset-0 pointer-events-none"
+        style={{ boxShadow: 'inset 0 0 180px rgba(42,22,13,0.10)' }}
       />
 
       {/* CONTENT */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          maxWidth: 1280,
-          margin: '0 auto',
-        }}
-      >
+      <div className="relative z-10 max-w-7xl mx-auto">
+
         {/* TOP RULE */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginBottom: 100,
-          }}
-        >
+        {/* FIX: margin reduced on mobile */}
+        <div className="flex justify-center mb-12 sm:mb-16 lg:mb-24">
           <div
-            style={{
-              width: '100%',
-              maxWidth: 980,
-              height: 1,
-              background:
-                'linear-gradient(to right, transparent, rgba(201,164,106,0.5), transparent)',
-            }}
+            className="w-full max-w-3xl h-px"
+            style={{ background: 'linear-gradient(to right, transparent, rgba(201,164,106,0.5), transparent)' }}
           />
         </div>
 
-        {/* GRID */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns:
-              'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: 100,
-            alignItems: 'center',
-          }}
-        >
+        {/* GRID
+            FIX: single column on mobile, two columns from md up.
+            gap: 48px mobile → 80px desktop (was a fixed 100px everywhere) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
+
           {/* LEFT */}
           <motion.div
             ref={leftRef}
             initial={{ opacity: 0, y: 40 }}
-            animate={
-              leftInView
-                ? { opacity: 1, y: 0 }
-                : {}
-            }
-            transition={{
-              duration: 0.9,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            style={{
-              maxWidth: 580,
-            }}
+            animate={leftInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* EYEBROW */}
             <p
               style={{
                 fontFamily: "'Cinzel', serif",
                 fontSize: 9,
-                letterSpacing: '0.52em',
+                // FIX: tighter tracking — 0.52em caused overflow on mobile
+                letterSpacing: '0.3em',
                 textTransform: 'uppercase',
                 color: TOKEN.goldMid,
-                marginBottom: 28,
+                marginBottom: 22,
               }}
             >
               Chaibaaz Luxury Experience
@@ -390,57 +265,24 @@ export default function FinalCTA() {
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 300,
-                fontSize: 'clamp(3.5rem, 7vw, 7rem)',
+                // FIX: lower floor (2.6rem) fits on 320px screens without wrapping badly
+                fontSize: 'clamp(2.6rem, 7vw, 7rem)',
                 lineHeight: 0.92,
                 color: TOKEN.brownDark,
-                marginBottom: 36,
+                marginBottom: 28,
               }}
             >
               Let's create
-              <em
-                style={{
-                  fontStyle: 'italic',
-                  color: TOKEN.goldMid,
-                  display: 'block',
-                }}
-              >
+              <em style={{ fontStyle: 'italic', color: TOKEN.goldMid, display: 'block' }}>
                 something unforgettable
               </em>
             </h2>
 
             {/* DIVIDER */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-                marginBottom: 36,
-              }}
-            >
-              <div
-                style={{
-                  width: 60,
-                  height: 1,
-                  background: TOKEN.gold,
-                }}
-              />
-
-              <div
-                style={{
-                  width: 5,
-                  height: 5,
-                  borderRadius: '50%',
-                  background: TOKEN.gold,
-                }}
-              />
-
-              <div
-                style={{
-                  width: 60,
-                  height: 1,
-                  background: TOKEN.gold,
-                }}
-              />
+            <div className="flex items-center gap-3 mb-6">
+              <div style={{ width: 48, height: 1, background: TOKEN.gold }} />
+              <div style={{ width: 5, height: 5, borderRadius: '50%', background: TOKEN.gold }} />
+              <div style={{ width: 48, height: 1, background: TOKEN.gold }} />
             </div>
 
             {/* BODY */}
@@ -448,92 +290,57 @@ export default function FinalCTA() {
               style={{
                 fontFamily: "'Lato', sans-serif",
                 fontWeight: 300,
-                fontSize: 17,
-                lineHeight: 1.9,
+                fontSize: 16,
+                lineHeight: 1.85,
                 color: TOKEN.brownMid,
-                maxWidth: 500,
               }}
             >
-              Every gathering deserves a signature
-              experience. From intimate celebrations
-              to grand luxury events, Chaibaaz crafts
-              immersive chai hospitality designed to
-              leave a lasting impression on every
-              guest.
+              Every gathering deserves a signature experience. From intimate
+              celebrations to grand luxury events, Chaibaaz crafts immersive
+              chai hospitality designed to leave a lasting impression on every guest.
             </p>
 
-            {/* STATS */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: 40,
-                marginTop: 56,
-              }}
-            >
-              <StatItem
-                label="Experiences"
-                value="Weddings · Events · Luxury Gatherings"
-              />
-
-              <StatItem
-                label="Hospitality"
-                value="Crafted with warmth & elegance"
-              />
+            {/* STATS
+                FIX: single column on very small screens, 2-col from sm up */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10 sm:mt-14">
+              <StatItem label="Experiences" value="Weddings · Events · Luxury Gatherings" />
+              <StatItem label="Hospitality" value="Crafted with warmth & elegance" />
             </div>
           </motion.div>
 
-          {/* RIGHT */}
+          {/* RIGHT — circular button
+              FIX: centred on mobile, right-aligned on desktop */}
           <motion.div
             ref={rightRef}
             initial={{ opacity: 0, scale: 0.92 }}
-            animate={
-              rightInView
-                ? { opacity: 1, scale: 1 }
-                : {}
-            }
-            transition={{
-              duration: 1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
+            animate={rightInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex justify-center"
           >
             <CircularButton />
           </motion.div>
         </div>
 
         {/* FOOTER */}
+        {/* FIX: margin reduced on mobile */}
         <motion.div
           ref={footRef}
           initial={{ opacity: 0 }}
-          animate={
-            footInView
-              ? { opacity: 1 }
-              : {}
-          }
-          transition={{
-            duration: 1,
-            delay: 0.15,
-          }}
-          style={{
-            textAlign: 'center',
-            marginTop: 120,
-          }}
+          animate={footInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: 0.15 }}
+          className="text-center mt-16 sm:mt-20 lg:mt-28"
         >
           <p
             style={{
               fontFamily: "'Cinzel', serif",
               fontSize: 8.5,
-              letterSpacing: '0.45em',
+              // FIX: tighter tracking on mobile
+              letterSpacing: '0.28em',
               textTransform: 'uppercase',
               color: TOKEN.brownSoft,
             }}
           >
-            Premium Chai Catering · Luxury Hospitality
-            · Chaibaaz
+            Premium Chai Catering · Luxury Hospitality · Chaibaaz
           </p>
         </motion.div>
       </div>
@@ -541,14 +348,8 @@ export default function FinalCTA() {
       {/* BOTTOM FADE */}
       <div
         aria-hidden
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: 180,
-          background: `linear-gradient(to top, ${TOKEN.creamMid}, transparent)`,
-        }}
+        className="absolute bottom-0 left-0 w-full h-36 pointer-events-none"
+        style={{ background: `linear-gradient(to top, ${TOKEN.creamMid}, transparent)` }}
       />
     </section>
   );

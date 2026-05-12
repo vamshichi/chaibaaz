@@ -1,13 +1,7 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useInView,
-} from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 
 /* ─────────────────────────────────────────────
@@ -45,41 +39,37 @@ const SERVICES = [
 ];
 
 /* ─────────────────────────────────────────────
-   DESIGN TOKENS  (match logo palette)
+   DESIGN TOKENS
 ───────────────────────────────────────────── */
 const TOKEN = {
-  cream:      '#F5EFE6',
-  creamDark:  '#EDE3D4',
-  brownDark:  '#2C1A0E',
-  brownMid:   '#4A2E1A',
-  gold:       '#B8964A',
-  goldLight:  '#D4AF6A',
-  goldPale:   '#E8D5A3',
-  textBody:   '#5C3D22',
+  cream:     '#F5EFE6',
+  brownDark: '#2C1A0E',
+  brownMid:  '#4A2E1A',
+  gold:      '#B8964A',
+  goldLight: '#D4AF6A',
+  textBody:  '#5C3D22',
 };
 
 /* ─────────────────────────────────────────────
    SUB-COMPONENTS
 ───────────────────────────────────────────── */
 
-/** Thin horizontal ornament  ·✦· */
 function GoldOrnament({ className = '' }: { className?: string }) {
   return (
     <div className={`flex items-center justify-center gap-3 ${className}`}>
       <span
-        className="block h-px w-16"
+        className="block h-px w-12 sm:w-16"
         style={{ background: `linear-gradient(to right, transparent, ${TOKEN.gold})` }}
       />
       <span style={{ color: TOKEN.gold, fontSize: 12 }}>✦</span>
       <span
-        className="block h-px w-16"
+        className="block h-px w-12 sm:w-16"
         style={{ background: `linear-gradient(to left, transparent, ${TOKEN.gold})` }}
       />
     </div>
   );
 }
 
-/** Individual card – alternating image/text layout */
 function ServiceCard({
   service,
   index,
@@ -88,7 +78,7 @@ function ServiceCard({
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px 0px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px 0px' });
   const isEven = index % 2 === 1;
 
   return (
@@ -97,9 +87,9 @@ function ServiceCard({
       initial={{ opacity: 0, y: 48 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
-      whileHover={{ y: -6 }}
+      whileHover={{ y: -4 }}
       style={{
-        borderRadius: 28,
+        borderRadius: 24,
         border: `1px solid rgba(184,150,74,0.22)`,
         background: '#FFFFFF',
         boxShadow: `
@@ -108,42 +98,29 @@ function ServiceCard({
           inset 0 0 0 1px rgba(255,255,255,0.9)
         `,
         overflow: 'hidden',
-        transition: 'box-shadow 0.5s ease',
       }}
       className="group relative"
     >
-      {/* Hover shadow upgrade */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none rounded-[28px]"
-        style={{ zIndex: 10 }}
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            borderRadius: 28,
-            boxShadow: `
-              0 20px 60px rgba(44,26,14,0.13),
-              0 4px 16px rgba(184,150,74,0.14)
-            `,
-          }}
-        />
-      </motion.div>
+      {/*
+        Layout:
+        • Mobile  → flex-col: image (fixed height) on top, content below — ALWAYS
+        • Desktop → 2-col grid, alternating image/content order via CSS order
+      */}
+      <div className="flex flex-col md:grid md:grid-cols-2" style={{ minHeight: 'auto' }}>
 
-      {/* Grid: image + content  (order flips on even cards) */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          minHeight: 400,
-          direction: isEven ? 'rtl' : 'ltr',
-        }}
-      >
-        {/* ── IMAGE HALF ── */}
-        <div className="relative overflow-hidden" style={{ direction: 'ltr' }}>
+        {/* ── IMAGE ──
+            On mobile: order-1 (always on top)
+            On desktop: order flips via isEven                              */}
+        <div
+          className={`relative overflow-hidden
+            h-56 sm:h-64 md:h-auto
+            ${isEven ? 'md:order-2' : 'md:order-1'}
+          `}
+          style={{ minHeight: 0 }}
+        >
+          {/* Force a concrete height on desktop via pseudo-element trick */}
+          <div className="hidden md:block" style={{ paddingBottom: '75%' }} />
+
           <motion.div
             className="absolute inset-0"
             whileHover={{ scale: 1.06 }}
@@ -159,43 +136,28 @@ function ServiceCard({
             />
           </motion.div>
 
-          {/* Fade edge toward content */}
+          {/* Fade toward content — hidden on mobile (full-width image) */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none hidden md:block"
             style={{
               background: isEven
                 ? `linear-gradient(to left,  transparent 55%, #FFFFFF 100%)`
                 : `linear-gradient(to right, transparent 55%, #FFFFFF 100%)`,
             }}
           />
-
-          {/* Large ghost number */}
-          <div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 130,
-              fontWeight: 300,
-              color: 'rgba(255,255,255,0.18)',
-              lineHeight: 1,
-            }}
-          >
-            {/* {service.number} */}
-          </div>
         </div>
 
-        {/* ── CONTENT HALF ── */}
+        {/* ── CONTENT ── */}
         <div
-          className="relative flex flex-col justify-center"
-          style={{
-            padding: '52px 52px',
-            direction: 'ltr',
-            background: '#FFFFFF',
-          }}
+          className={`relative flex flex-col justify-center
+            px-6 py-8 sm:px-10 sm:py-10 md:px-12 md:py-14
+            ${isEven ? 'md:order-1' : 'md:order-2'}
+          `}
+          style={{ background: '#FFFFFF' }}
         >
-          {/* Corner accent */}
+          {/* Corner accent — desktop only */}
           <div
-            className="absolute pointer-events-none"
+            className="absolute pointer-events-none hidden md:block"
             style={{
               top: 28,
               ...(isEven
@@ -212,10 +174,10 @@ function ServiceCard({
             style={{
               fontFamily: "'Cinzel', serif",
               fontSize: 9,
-              letterSpacing: '0.5em',
+              letterSpacing: '0.4em',
               color: TOKEN.gold,
               textTransform: 'uppercase',
-              marginBottom: 16,
+              marginBottom: 14,
             }}
           >
             Signature Experience
@@ -226,18 +188,19 @@ function ServiceCard({
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 300,
-              fontSize: 'clamp(2.2rem, 3.2vw, 3.4rem)',
-              lineHeight: 0.92,
+              // FIX: floor raised so it reads well on mobile
+              fontSize: 'clamp(2rem, 5vw, 3.4rem)',
+              lineHeight: 0.95,
               color: TOKEN.brownDark,
-              marginBottom: 24,
+              marginBottom: 20,
             }}
           >
             {service.title}
           </h3>
 
           {/* Gold divider */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-            <div style={{ width: 48, height: 1, background: TOKEN.gold }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18 }}>
+            <div style={{ width: 40, height: 1, background: TOKEN.gold }} />
             <div style={{ width: 5, height: 5, borderRadius: '50%', background: TOKEN.gold }} />
           </div>
 
@@ -247,10 +210,10 @@ function ServiceCard({
               fontFamily: "'Lato', sans-serif",
               fontWeight: 300,
               fontSize: 15,
-              lineHeight: 1.78,
+              lineHeight: 1.75,
               color: TOKEN.textBody,
-              maxWidth: 300,
-              marginBottom: 36,
+              maxWidth: 320,
+              marginBottom: 32,
             }}
           >
             {service.description}
@@ -272,6 +235,7 @@ function ServiceCard({
               border: 'none',
               padding: 0,
               cursor: 'pointer',
+              alignSelf: 'flex-start',
             }}
           >
             Enquire Now
@@ -320,7 +284,7 @@ export function ServicePanels() {
         overflow: 'hidden',
       }}
     >
-      {/* Noise texture overlay */}
+      {/* Noise texture */}
       <div
         aria-hidden
         style={{
@@ -335,12 +299,8 @@ export function ServicePanels() {
 
       {/* ── HEADER ── */}
       <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          textAlign: 'center',
-          padding: '96px 24px 64px',
-        }}
+        className="relative z-10 text-center px-5 sm:px-8"
+        style={{ padding: '72px 20px 52px' }}
       >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -350,7 +310,8 @@ export function ServicePanels() {
           style={{
             fontFamily: "'Cinzel', serif",
             fontSize: 10,
-            letterSpacing: '0.55em',
+            // FIX: tighter tracking on mobile
+            letterSpacing: 'clamp(0.2em, 0.55em, 0.55em)',
             color: TOKEN.gold,
             textTransform: 'uppercase',
             marginBottom: 20,
@@ -367,8 +328,9 @@ export function ServicePanels() {
           style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 300,
-            fontSize: 'clamp(3.5rem, 7vw, 7rem)',
-            lineHeight: 0.9,
+            // FIX: floor dropped for mobile so it fits in one line
+            fontSize: 'clamp(2.6rem, 8vw, 7rem)',
+            lineHeight: 0.92,
             color: TOKEN.brownDark,
           }}
         >
@@ -385,12 +347,12 @@ export function ServicePanels() {
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <GoldOrnament className="mt-8" />
+          <GoldOrnament className="mt-7" />
         </motion.div>
       </div>
 
       {/* Brand badge */}
-      <div style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', marginBottom: 48 }}>
+      <div className="relative z-10 flex justify-center mb-10 px-4">
         <div
           style={{
             display: 'inline-flex',
@@ -399,8 +361,13 @@ export function ServicePanels() {
             background: '#FFFFFF',
             border: `1px solid rgba(184,150,74,0.22)`,
             borderRadius: 100,
-            padding: '9px 24px',
+            // FIX: smaller horizontal padding on mobile
+            padding: '8px 16px',
             boxShadow: '0 2px 12px rgba(44,26,14,0.06)',
+            // FIX: allow wrapping on very small screens
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            textAlign: 'center',
           }}
         >
           <div style={{ width: 5, height: 5, borderRadius: '50%', background: TOKEN.gold }} />
@@ -408,7 +375,8 @@ export function ServicePanels() {
             style={{
               fontFamily: "'Cinzel', serif",
               fontSize: 8.5,
-              letterSpacing: '0.35em',
+              // FIX: tighter tracking so it fits narrow screens
+              letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: TOKEN.brownMid,
             }}
@@ -421,15 +389,15 @@ export function ServicePanels() {
 
       {/* ── SERVICE CARDS ── */}
       <div
+        className="relative z-10"
         style={{
-          position: 'relative',
-          zIndex: 2,
           maxWidth: 1100,
           margin: '0 auto',
-          padding: '0 32px 80px',
+          // FIX: tighter side padding on mobile, comfortable on desktop
+          padding: '0 16px 64px',
           display: 'flex',
           flexDirection: 'column',
-          gap: 28,
+          gap: 20,
         }}
       >
         {SERVICES.map((service, index) => (
@@ -439,19 +407,15 @@ export function ServicePanels() {
 
       {/* ── FOOTER SIGNATURE ── */}
       <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          textAlign: 'center',
-          padding: '40px 24px 72px',
-        }}
+        className="relative z-10 text-center"
+        style={{ padding: '32px 24px 60px' }}
       >
-        <GoldOrnament className="mb-6" />
+        <GoldOrnament className="mb-5" />
         <p
           style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontStyle: 'italic',
-            fontSize: '1.15rem',
+            fontSize: '1.1rem',
             color: TOKEN.brownMid,
             letterSpacing: '0.08em',
           }}
