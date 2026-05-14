@@ -120,7 +120,7 @@ function LuxuryInput({
 }) {
   return (
     <div className="relative">
-      <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#B88B4A] mb-2 sm:mb-3">
+      <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-black mb-2 sm:mb-3">
         {label}
       </label>
       <input
@@ -356,7 +356,7 @@ export default function BookingSection() {
                 {step === 4 && (
                   <div>
                     <h3
-                      className="text-3xl sm:text-4xl text-[#2A160D] mb-7 sm:mb-10"
+                      className="text-3xl sm:text-4xl text-black mb-7 sm:mb-10"
                       style={{ fontFamily: "'Cormorant Garamond', serif" }}
                     >
                       Your details

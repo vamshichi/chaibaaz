@@ -10,7 +10,7 @@ import nodemailer from "nodemailer";
 //
 // For Gmail: enable 2FA → Google Account → Security → App Passwords → generate one.
 const transporter = nodemailer.createTransport({
-  host: "smtp.zoho.in",
+  host: "smtp.zohocloud.ca",
   port: 465,
   secure: true,
   auth: {
