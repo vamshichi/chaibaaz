@@ -9,7 +9,7 @@ export default function Preloader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 50000); // Adjust based on video duration
+    }, 5000); // 5 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -27,7 +27,13 @@ export default function Preloader() {
             autoPlay
             muted
             playsInline
-            className="w-full h-full object-cover"
+            preload="auto"
+            className="
+              w-full
+              h-full
+              object-contain
+              md:object-cover
+            "
           >
             <source src="/videos/chai2.mp4" type="video/mp4" />
           </video>

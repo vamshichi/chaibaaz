@@ -9,16 +9,30 @@ import {
 import { useEffect, useState } from 'react';
 
 export default function CustomCursor() {
+  const [isMobile, setIsMobile] = useState(false);
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   const smoothX = useSpring(x, { stiffness: 70, damping: 20 });
   const smoothY = useSpring(y, { stiffness: 70, damping: 20 });
 
-  const [hoverType, setHoverType] = useState<'default' | 'button' | 'view'>('default');
+  const [hoverType, setHoverType] = useState<
+    'default' | 'button' | 'view'
+  >('default');
+
   const [click, setClick] = useState(false);
 
   useEffect(() => {
+    // Detect mobile / touch devices
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+
+    window.addEventListener('resize', checkMobile);
+
     const move = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
@@ -38,7 +52,10 @@ export default function CustomCursor() {
 
     const handleClick = () => {
       setClick(true);
-      setTimeout(() => setClick(false), 300);
+
+      setTimeout(() => {
+        setClick(false);
+      }, 300);
     };
 
     window.addEventListener('mousemove', move);
@@ -46,11 +63,15 @@ export default function CustomCursor() {
     window.addEventListener('mousedown', handleClick);
 
     return () => {
+      window.removeEventListener('resize', checkMobile);
       window.removeEventListener('mousemove', move);
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mousedown', handleClick);
     };
-  }, []);
+  }, [x, y]);
+
+  // Hide cursor on mobile
+  if (isMobile) return null;
 
   return (
     <>
