@@ -13,7 +13,7 @@ const SERVICES = [
     title: 'Luxury Chai Cart',
     description:
       'Elegant live chai stations crafted for weddings, soirées, and unforgettable celebrations.',
-    image: '/images/chaicart.jpeg',
+    image: '/gallery/cart.jpg',
   },
   {
     number: '02',

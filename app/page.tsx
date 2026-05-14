@@ -38,10 +38,9 @@ export default function Home() {
       <Navigation />
 
       <main>
-        <section id="home">
+        
           <HeroSection />
-        </section>
-
+        
         {/* <FadeDivider variant="darkToLight" /> */}
 
         <StorySection />
@@ -52,13 +51,13 @@ export default function Home() {
 
         {/* <FadeDivider variant="darkToLight" /> */}
 
-        <section id="services">
+       
           <ServicePanels />
-        </section>
         
-        <section id="gallery">
+        
+        
         <Gallery />
-        </section>
+        
         
           <GallerySection />
       

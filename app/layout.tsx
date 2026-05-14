@@ -24,11 +24,11 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/chai-logo.png',
+        url: '/clogo.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/chai-logo.png',
+        url: '/clogo.png',
         type: 'image/svg+xml',
       },
     ],
