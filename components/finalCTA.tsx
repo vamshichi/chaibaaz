@@ -302,10 +302,10 @@ export default function FinalCTA() {
 
             {/* STATS
                 FIX: single column on very small screens, 2-col from sm up */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10 sm:mt-14">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10 sm:mt-14">
               <StatItem label="Experiences" value="Weddings · Events · Luxury Gatherings" />
               <StatItem label="Hospitality" value="Crafted with warmth & elegance" />
-            </div>
+            </div> */}
           </motion.div>
 
           {/* RIGHT — circular button

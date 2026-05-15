@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   Instagram,
-  Facebook,
-  Twitter,
   Mail,
   Phone,
   MapPin,
@@ -16,8 +14,6 @@ export function Footer() {
 
   const socialLinks = [
     { icon: Instagram, href: '#', label: 'Instagram' },
-    // { icon: Facebook, href: '#', label: 'Facebook' },
-    // { icon: Twitter, href: '#', label: 'Twitter' },
   ];
 
   const quickLinks = [
@@ -28,10 +24,14 @@ export function Footer() {
   ];
 
   const services = [
-    'Luxury Chai Cart',
-    'Wedding Catering',
+    'Weddings',
     'Corporate Events',
     'Private Celebrations',
+    'Cultural Gatherings',
+    'Luxury Galas',
+    'Concerts & Festivals',
+    'Milestone Events',
+    'Intimate Gatherings',
   ];
 
   return (
@@ -43,7 +43,6 @@ export function Footer() {
         text-white
       "
     >
-
       {/* ───────────────── BACKGROUND ───────────────── */}
 
       {/* GOLD LIGHT */}
@@ -51,7 +50,7 @@ export function Footer() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 20% 20%, rgba(201,164,106,0.10), transparent 40%)",
+            'radial-gradient(circle at 20% 20%, rgba(201,164,106,0.10), transparent 40%)',
         }}
       />
 
@@ -60,7 +59,7 @@ export function Footer() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 80% 70%, rgba(184,139,74,0.08), transparent 45%)",
+            'radial-gradient(circle at 80% 70%, rgba(184,139,74,0.08), transparent 45%)',
         }}
       />
 
@@ -85,7 +84,7 @@ export function Footer() {
         "
         style={{
           background:
-            "radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)",
+            'radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)',
           filter: 'blur(120px)',
         }}
       />
@@ -95,10 +94,10 @@ export function Footer() {
 
       {/* ───────────────── CONTENT ───────────────── */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 lg:px-16 pt-28 pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 lg:px-16 pt-24 lg:pt-28 pb-12">
 
         {/* TOP SECTION */}
-        <div className="grid lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-16 pb-20">
+        <div className="grid lg:grid-cols-[1.4fr_1.6fr_1fr] gap-16 xl:gap-24 pb-20 items-start">
 
           {/* ───────────────── BRAND ───────────────── */}
 
@@ -125,7 +124,7 @@ export function Footer() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(201,164,106,0.12), transparent 70%)",
+                    'radial-gradient(circle, rgba(201,164,106,0.12), transparent 70%)',
                   filter: 'blur(25px)',
                 }}
               />
@@ -136,14 +135,14 @@ export function Footer() {
             <p
               className="
                 text-white/60
-                leading-relaxed
+                leading-[1.9]
                 max-w-md
                 text-[15px]
               "
             >
-              Chaibaaz crafts luxury chai catering experiences
-              designed for weddings, corporate gatherings,
-              private celebrations, and unforgettable moments.
+              Chaibaaz crafts refined chai hospitality
+              for weddings, celebrations, corporate
+              events, and memorable gatherings.
             </p>
 
             {/* MINI DIVIDER */}
@@ -154,119 +153,113 @@ export function Footer() {
 
           </motion.div>
 
-          {/* ───────────────── QUICK LINKS ───────────────── */}
+         {/* ───────────────── LINKS ───────────────── */}
 
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
+<div className="grid grid-cols-2 gap-16">
+
+  {/* NAVIGATION */}
+  <motion.div
+    initial={{ opacity: 0, y: 25 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.1 }}
+    viewport={{ once: true }}
+  >
+
+    <p
+      className="
+        text-[10px]
+        uppercase
+        tracking-[0.45em]
+        text-[#C9A46A]
+        mb-8
+      "
+    >
+      Navigation
+    </p>
+
+    <ul className="space-y-5">
+
+      {quickLinks.map((link) => (
+        <li key={link.label}>
+
+          <a
+            href={link.href}
+            className="
+              text-white/60
+              hover:text-white
+              transition-colors
+              duration-300
+            "
           >
 
-            <p
-              className="
-                text-[10px]
-                uppercase
-                tracking-[0.45em]
-                text-[#C9A46A]
-                mb-8
-              "
+            <span
+              className="text-[16px]"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
             >
-              Navigation
-            </p>
+              {link.label}
+            </span>
 
-            <ul className="space-y-5">
+          </a>
 
-              {quickLinks.map((link) => (
-                <li key={link.label}>
+        </li>
+      ))}
 
-                  <a
-                    href={link.href}
-                    className="
-                      group
-                      flex
-                      items-center
-                      gap-3
-                      text-white/65
-                      hover:text-white
-                      transition-all
-                      duration-300
-                    "
-                  >
+    </ul>
 
-                    <div className="w-0 group-hover:w-6 h-px bg-[#C9A46A] transition-all duration-300" />
+  </motion.div>
 
-                    <span
-                      className="text-[15px]"
-                      style={{
-                        fontFamily:
-                          "'Cormorant Garamond', serif",
-                      }}
-                    >
-                      {link.label}
-                    </span>
+  {/* OCCASIONS */}
+  <motion.div
+    initial={{ opacity: 0, y: 25 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.2 }}
+    viewport={{ once: true }}
+  >
 
-                  </a>
+    <p
+      className="
+        text-[10px]
+        uppercase
+        tracking-[0.45em]
+        text-[#C9A46A]
+        mb-8
+      "
+    >
+      Occasions
+    </p>
 
-                </li>
-              ))}
+    <ul className="space-y-4">
 
-            </ul>
+      {services.map((service) => (
+        <li
+          key={service}
+          className="
+            text-white/60
+            hover:text-white
+            transition-colors
+            duration-300
+          "
+        >
 
-          </motion.div>
-
-          {/* ───────────────── SERVICES ───────────────── */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+          <span
+            className="text-[16px] leading-[1.7]"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+            }}
           >
+            {service}
+          </span>
 
-            <p
-              className="
-                text-[10px]
-                uppercase
-                tracking-[0.45em]
-                text-[#C9A46A]
-                mb-8
-              "
-            >
-              Experiences
-            </p>
+        </li>
+      ))}
 
-            <ul className="space-y-5">
+    </ul>
 
-              {services.map((service) => (
-                <li
-                  key={service}
-                  className="
-                    flex
-                    items-center
-                    gap-3
-                    text-white/65
-                  "
-                >
+  </motion.div>
 
-                  <div className="w-6 h-px bg-[#C9A46A]/60" />
-
-                  <span
-                    className="text-[15px]"
-                    style={{
-                      fontFamily:
-                        "'Cormorant Garamond', serif",
-                    }}
-                  >
-                    {service}
-                  </span>
-
-                </li>
-              ))}
-
-            </ul>
-
-          </motion.div>
+</div>
 
           {/* ───────────────── CONTACT ───────────────── */}
 
@@ -289,16 +282,16 @@ export function Footer() {
               Contact
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-7">
 
               {/* PHONE */}
               <a
-                href="tel:+1 (416) 729-8787"
+                href="tel:+14167298787"
                 className="
                   flex
                   items-start
                   gap-4
-                  text-white/65
+                  text-white/60
                   hover:text-white
                   transition-colors
                 "
@@ -307,18 +300,20 @@ export function Footer() {
                 <Phone className="w-4 h-4 mt-1 text-[#C9A46A]" />
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-white/40 mb-1">
+
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/35 mb-2">
                     Phone
                   </p>
 
                   <p
+                    className="text-[16px]"
                     style={{
-                      fontFamily:
-                        "'Cormorant Garamond', serif",
+                      fontFamily: "'Cormorant Garamond', serif",
                     }}
                   >
                     +1 (416) 729-8787
                   </p>
+
                 </div>
 
               </a>
@@ -330,7 +325,7 @@ export function Footer() {
                   flex
                   items-start
                   gap-4
-                  text-white/65
+                  text-white/60
                   hover:text-white
                   transition-colors
                 "
@@ -339,18 +334,20 @@ export function Footer() {
                 <Mail className="w-4 h-4 mt-1 text-[#C9A46A]" />
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-white/40 mb-1">
+
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/35 mb-2">
                     Email
                   </p>
 
                   <p
+                    className="text-[16px]"
                     style={{
-                      fontFamily:
-                        "'Cormorant Garamond', serif",
+                      fontFamily: "'Cormorant Garamond', serif",
                     }}
                   >
                     info@chaibaaz.com
                   </p>
+
                 </div>
 
               </a>
@@ -361,25 +358,27 @@ export function Footer() {
                   flex
                   items-start
                   gap-4
-                  text-white/65
+                  text-white/60
                 "
               >
 
                 <MapPin className="w-4 h-4 mt-1 text-[#C9A46A]" />
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-white/40 mb-1">
+
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/35 mb-2">
                     Location
                   </p>
 
                   <p
+                    className="text-[16px]"
                     style={{
-                      fontFamily:
-                        "'Cormorant Garamond', serif",
+                      fontFamily: "'Cormorant Garamond', serif",
                     }}
                   >
                     Toronto · Canada
                   </p>
+
                 </div>
 
               </div>
@@ -398,7 +397,7 @@ export function Footer() {
 
         </div>
 
-        {/* ───────────────── BOTTOM SECTION ───────────────── */}
+        {/* ───────────────── BOTTOM ───────────────── */}
 
         <motion.div
           className="
@@ -407,7 +406,7 @@ export function Footer() {
             lg:flex-row
             items-center
             justify-between
-            gap-10
+            gap-8
           "
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -418,16 +417,17 @@ export function Footer() {
           {/* COPYRIGHT */}
           <p
             className="
-              text-white/40
+              text-white/35
               text-[11px]
               uppercase
               tracking-[0.25em]
+              text-center
             "
           >
             © {currentYear} Chaibaaz · Crafted with elegance
           </p>
 
-          {/* SOCIAL LINKS */}
+          {/* SOCIAL */}
           <div className="flex items-center gap-5">
 
             {socialLinks.map((social) => (
@@ -436,7 +436,7 @@ export function Footer() {
                 href={social.href}
                 aria-label={social.label}
                 whileHover={{
-                  scale: 1.12,
+                  scale: 1.08,
                   y: -2,
                 }}
                 whileTap={{
@@ -444,12 +444,12 @@ export function Footer() {
                 }}
                 className="
                   relative
-                  w-12
-                  h-12
+                  w-11
+                  h-11
                   rounded-full
                   border
                   border-white/10
-                  bg-white/[0.04]
+                  bg-white/[0.03]
                   backdrop-blur-xl
                   flex
                   items-center
@@ -462,7 +462,6 @@ export function Footer() {
                 "
               >
 
-                {/* GLOW */}
                 <div
                   className="
                     absolute
@@ -475,11 +474,11 @@ export function Footer() {
                   "
                   style={{
                     background:
-                      "radial-gradient(circle, rgba(201,164,106,0.18), transparent 70%)",
+                      'radial-gradient(circle, rgba(201,164,106,0.18), transparent 70%)',
                   }}
                 />
 
-                <social.icon className="w-5 h-5 relative z-10" />
+                <social.icon className="w-4 h-4 relative z-10" />
 
               </motion.a>
             ))}
@@ -487,38 +486,37 @@ export function Footer() {
           </div>
 
           {/* LEGAL */}
-          {/* LEGAL */}
-<div className="flex items-center gap-8">
+          <div className="flex items-center gap-8">
 
-  <a
-    href="/privacy-policy"
-    className="
-      text-white/40
-      hover:text-[#C9A46A]
-      transition-colors
-      text-[11px]
-      uppercase
-      tracking-[0.25em]
-    "
-  >
-    Privacy Policy
-  </a>
+            <a
+              href="/privacy-policy"
+              className="
+                text-white/35
+                hover:text-[#C9A46A]
+                transition-colors
+                text-[11px]
+                uppercase
+                tracking-[0.25em]
+              "
+            >
+              Privacy Policy
+            </a>
 
-  <a
-    href="/terms-of-service"
-    className="
-      text-white/40
-      hover:text-[#C9A46A]
-      transition-colors
-      text-[11px]
-      uppercase
-      tracking-[0.25em]
-    "
-  >
-    Terms of Service
-  </a>
+            <a
+              href="/terms-of-service"
+              className="
+                text-white/35
+                hover:text-[#C9A46A]
+                transition-colors
+                text-[11px]
+                uppercase
+                tracking-[0.25em]
+              "
+            >
+              Terms of Service
+            </a>
 
-</div>
+          </div>
 
         </motion.div>
 

@@ -144,7 +144,7 @@ export default function AboutSection() {
                   Our philosophy
                 </p>
                 <p className="text-[#5B4636] leading-relaxed text-[15px] md:text-[17px]">
-                  :Every experience is crafted with warmth, elegance, and intention, elevating traditional chai into a modern luxury ritual. 
+                  Every experience is crafted with warmth, elegance, and intention, elevating traditional chai into a modern luxury ritual. 
                 </p>
               </motion.div>
 

@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 
-import Preloader  from '@/components/Preloader';
-import CustomCursor  from '@/components/CustomCursor';
-import Navigation  from '@/components/Navigation';
-import HeroSection  from '@/components/HeroSection';
-import  StorySection  from '@/components/StorySection';
+import Preloader from '@/components/Preloader';
+import CustomCursor from '@/components/CustomCursor';
+import Navigation from '@/components/Navigation';
+import HeroSection from '@/components/HeroSection';
+import StorySection from '@/components/StorySection';
 import { ServicePanels } from '@/components/ServicePanels';
-import GallerySection  from '@/components/GallerySection';
+import GallerySection from '@/components/GallerySection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
-import BookingSection  from '@/components/BookingSection';
+import BookingSection from '@/components/BookingSection';
 import { Footer } from '@/components/Footer';
 import FinalCTA from '@/components/finalCTA';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -34,17 +34,17 @@ export default function Home() {
 
   return (
     <>
-      
+
       <Navigation />
 
       <main>
-        
-          <HeroSection />
-        
+
+        <HeroSection />
+
         {/* <FadeDivider variant="darkToLight" /> */}
 
         <StorySection />
-         <ServicePanels />
+        <ServicePanels />
 
         {/* <FadeDivider variant="lightToDark" /> */}
 
@@ -52,17 +52,17 @@ export default function Home() {
 
         {/* <FadeDivider variant="darkToLight" /> */}
 
-       
-         
-        
-        
-        
+
+
+
+
+
         <Gallery />
-        
-        
-          <GallerySection />
-      
-        
+
+
+        <GallerySection />
+
+
         {/* <FadeDivider variant="lightToDark" /> */}
 
         <section id="testimonials">
