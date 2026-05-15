@@ -44,6 +44,7 @@ export default function Home() {
         {/* <FadeDivider variant="darkToLight" /> */}
 
         <StorySection />
+         <ServicePanels />
 
         {/* <FadeDivider variant="lightToDark" /> */}
 
@@ -52,7 +53,7 @@ export default function Home() {
         {/* <FadeDivider variant="darkToLight" /> */}
 
        
-          <ServicePanels />
+         
         
         
         
