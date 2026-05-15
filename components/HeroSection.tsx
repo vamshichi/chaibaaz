@@ -119,9 +119,9 @@ function StoryPanel({
       className="absolute w-full max-w-5xl px-6 sm:px-10"
       style={{ opacity, y }}
     >
-      <p className="mb-4 sm:mb-6 text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.5em] text-white/70">
-        Chaibaaz Luxury Experiences
-      </p>
+      <p className="mb-4 sm:mb-6 text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.5em] text-white/70 whitespace-nowrap">
+  — Chaibaaz —
+</p>
 
       <h1
         className="text-white font-light leading-[0.92]"

@@ -261,17 +261,17 @@ export default function AboutSection() {
                   mb-1 sm:mb-2
                 "
               >
-                Since 2024
-              </p>
-
-              <h3
-                className="text-[#2A160D] text-lg sm:text-2xl"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
                 Luxury Chai Catering 
                 <br />
                 Est. 2024 
-              </h3>
+              </p>
+
+              {/* <h3
+                className="text-[#2A160D] text-lg sm:text-2xl"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                
+              </h3> */}
             </motion.div>
 
           </motion.div>

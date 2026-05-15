@@ -8,13 +8,13 @@ import Magnetic from './Magnetic';
    DESIGN TOKENS
 ───────────────────────────────────────────── */
 const TOKEN = {
-  cream:     '#F6F0E7',
-  creamMid:  '#EFE6D8',
+  cream: '#F6F0E7',
+  creamMid: '#EFE6D8',
   brownDark: '#2A160D',
-  brownMid:  '#5B4636',
+  brownMid: '#5B4636',
   brownSoft: '#7A6A5A',
-  gold:      '#C9A46A',
-  goldMid:   '#B88B4A',
+  gold: '#C9A46A',
+  goldMid: '#B88B4A',
 };
 
 /* ─────────────────────────────────────────────
@@ -61,102 +61,108 @@ function CircularButton() {
   const SIZE = 'clamp(220px, 55vw, 320px)';
 
   return (
+
     <Magnetic>
-      <motion.button
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.97 }}
-        transition={{ type: 'spring', stiffness: 220, damping: 18 }}
-        aria-label="Inquire about a Chaibaaz experience"
-        style={{
-          position: 'relative',
-          width: SIZE,
-          height: SIZE,
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-        }}
-      >
-        {/* OUTER CONIC GLOW */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+      <a href="/#booking">
+        <motion.button
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+          aria-label="Inquire about a Chaibaaz experience"
           style={{
-            position: 'absolute',
-            inset: 0,
+            position: 'relative',
+            width: SIZE,
+            height: SIZE,
             borderRadius: '50%',
-            background: 'conic-gradient(from 180deg, transparent, rgba(201,164,106,0.28), transparent)',
-            filter: 'blur(1px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
           }}
-        />
-
-        {/* RINGS */}
-        <div style={{ position: 'absolute', inset: 10, borderRadius: '50%', border: '1px solid rgba(201,164,106,0.35)' }} />
-        <div style={{ position: 'absolute', inset: 28, borderRadius: '50%', border: '1px solid rgba(201,164,106,0.18)' }} />
-
-        {/* GLASS CENTER */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 46,
-            borderRadius: '50%',
-            background: 'linear-gradient(145deg, rgba(255,255,255,0.58), rgba(255,255,255,0.22))',
-            backdropFilter: 'blur(24px)',
-            WebkitBackdropFilter: 'blur(24px)',
-            border: '1px solid rgba(255,255,255,0.28)',
-            boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.4), 0 25px 80px rgba(42,22,13,0.12)',
-          }}
-        />
-
-        {/* AMBIENT GLOW */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(201,164,106,0.18), transparent 65%)',
-            filter: 'blur(40px)',
-          }}
-        />
-
-        {/* CONTENT */}
-        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
-          <p
+        >
+          {/* OUTER CONIC GLOW */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
             style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: 9,
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: TOKEN.goldMid,
-              marginBottom: 14,
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '50%',
+              background: 'conic-gradient(from 180deg, transparent, rgba(201,164,106,0.28), transparent)',
+              filter: 'blur(1px)',
             }}
-          >
-            Reserve Experience
-          </p>
+          />
 
-          <h3
+          {/* RINGS */}
+          <div style={{ position: 'absolute', inset: 10, borderRadius: '50%', border: '1px solid rgba(201,164,106,0.35)' }} />
+          <div style={{ position: 'absolute', inset: 28, borderRadius: '50%', border: '1px solid rgba(201,164,106,0.18)' }} />
+
+          {/* GLASS CENTER */}
+          <div
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 300,
-              // FIX: lower floor so text fits inside smaller button on mobile
-              fontSize: 'clamp(2rem, 8vw, 4rem)',
-              lineHeight: 1,
-              color: TOKEN.brownDark,
+              position: 'absolute',
+              inset: 46,
+              borderRadius: '50%',
+              background: 'linear-gradient(145deg, rgba(255,255,255,0.58), rgba(255,255,255,0.22))',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+              border: '1px solid rgba(255,255,255,0.28)',
+              boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.4), 0 25px 80px rgba(42,22,13,0.12)',
             }}
-          >
-            Inquire
-          </h3>
+          />
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
-            <div style={{ width: 48, height: 1, background: TOKEN.gold }} />
+          {/* AMBIENT GLOW */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(201,164,106,0.18), transparent 65%)',
+              filter: 'blur(40px)',
+            }}
+          />
+
+          {/* CONTENT */}
+
+          <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
+            <p
+              style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: 9,
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color: TOKEN.goldMid,
+                marginBottom: 14,
+              }}
+            >
+              Reserve Experience
+            </p>
+
+            <h3
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 300,
+                // FIX: lower floor so text fits inside smaller button on mobile
+                fontSize: 'clamp(2rem, 8vw, 4rem)',
+                lineHeight: 1,
+                color: TOKEN.brownDark,
+              }}
+            >
+              Enquire
+            </h3>
+
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
+              <div style={{ width: 48, height: 1, background: TOKEN.gold }} />
+            </div>
           </div>
-        </div>
-      </motion.button>
+
+        </motion.button>
+      </a>
     </Magnetic>
+
   );
 }
 
@@ -164,17 +170,17 @@ function CircularButton() {
    MAIN EXPORT
 ───────────────────────────────────────────── */
 export default function FinalCTA() {
-  const leftRef  = useRef<HTMLDivElement>(null);
+  const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
-  const footRef  = useRef<HTMLDivElement>(null);
+  const footRef = useRef<HTMLDivElement>(null);
 
-  const leftInView  = useInView(leftRef,  { once: true, margin: '-80px 0px' });
+  const leftInView = useInView(leftRef, { once: true, margin: '-80px 0px' });
   const rightInView = useInView(rightRef, { once: true, margin: '-80px 0px' });
-  const footInView  = useInView(footRef,  { once: true, margin: '-40px 0px' });
+  const footInView = useInView(footRef, { once: true, margin: '-40px 0px' });
 
   return (
     <section
-      id="contact"
+
       aria-labelledby="cta-heading"
       // FIX: padding responsive via Tailwind — 72px top/bottom on mobile, 180px on desktop
       className="relative overflow-hidden py-20 sm:py-28 lg:py-[180px] px-5 sm:px-8"
@@ -302,10 +308,17 @@ export default function FinalCTA() {
 
             {/* STATS
                 FIX: single column on very small screens, 2-col from sm up */}
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10 sm:mt-14">
-              <StatItem label="Experiences" value="Weddings · Events · Luxury Gatherings" />
-              <StatItem label="Hospitality" value="Crafted with warmth & elegance" />
-            </div> */}
+            <div className="grid grid-cols-1 gap-6 sm:gap-8 mt-10 sm:mt-14">
+              <StatItem
+                label="Experiences"
+                value="Weddings · Corporate Events · Private Celebrations · Cultural Gatherings · Luxury Galas · Concerts & Festivals · Milestone Celebrations · Intimate Soirées"
+              />
+
+              <StatItem
+                label="Hospitality"
+                value="Crafted with warmth, elegance, and immersive live chai experiences"
+              />
+            </div>
           </motion.div>
 
           {/* RIGHT — circular button
