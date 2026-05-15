@@ -195,9 +195,7 @@ export default function WhyChooseUs() {
             mb-24
           "
         >
-          Chaibaaz transforms traditional chai into an elevated luxury
-          experience blending authentic flavors, refined presentation,
-          and immersive hospitality designed for unforgettable events.
+          Chaibaaz transforms traditional chai into an elevated luxury experience, blending authentic flavors, refined presentation, and immersive hospitality for unforgettable events. 
         </motion.p>
 
         {/* ───────────────── FEATURE CARDS ───────────────── */}

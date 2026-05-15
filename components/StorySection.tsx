@@ -130,10 +130,7 @@ export default function AboutSection() {
                   What we create
                 </p>
                 <p className="text-[#5B4636] leading-relaxed text-[15px] md:text-[17px]">
-                  Chaibaaz curates luxury chai catering experiences
-                  for weddings, private celebrations, corporate
-                  soirees, concerts, and premium cultural gatherings,
-                  blending timeless hospitality with elevated design.
+                  Chaibaaz curates elevated chai catering experiences for weddings, private celebrations, corporate events, concerts, and cultural gatherings, weaving timeless hospitality with refined presentation. 
                 </p>
               </motion.div>
 
@@ -147,9 +144,7 @@ export default function AboutSection() {
                   Our philosophy
                 </p>
                 <p className="text-[#5B4636] leading-relaxed text-[15px] md:text-[17px]">
-                  Every experience is designed with warmth,
-                  elegance, and intention transforming
-                  traditional chai into a refined luxury ritual.
+                  :Every experience is crafted with warmth, elegance, and intention, elevating traditional chai into a modern luxury ritual. 
                 </p>
               </motion.div>
 
@@ -273,9 +268,9 @@ export default function AboutSection() {
                 className="text-[#2A160D] text-lg sm:text-2xl"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
-                Luxury Chai
+                Luxury Chai Catering 
                 <br />
-                Experiences
+                Est. 2024 
               </h3>
             </motion.div>
 

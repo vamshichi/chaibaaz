@@ -20,7 +20,7 @@ const SERVICES = [
     title: 'Event Catering',
     description:
       'Premium hospitality experiences curated for grand corporate and luxury private events.',
-    image: '/gallery/event.jpg',
+    image: '/gallery/event.png',
   },
   {
     number: '03',
@@ -238,7 +238,9 @@ function ServiceCard({
               alignSelf: 'flex-start',
             }}
           >
+            <a href="#contact" >
             Enquire Now
+            </a>
             <motion.span
               variants={{ hover: { width: 40 } }}
               style={{
