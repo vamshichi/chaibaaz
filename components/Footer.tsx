@@ -21,10 +21,10 @@ export function Footer() {
   ];
 
   const quickLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Services', href: '#services' },
-    { label: 'Gallery', href: '#gallery' },
+    { label: 'Home', href: '/#home' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Gallery', href: '/#gallery' },
   ];
 
   const services = [
@@ -293,7 +293,7 @@ export function Footer() {
 
               {/* PHONE */}
               <a
-                href="tel:+1234567890"
+                href="tel:+1 (416) 729-8787"
                 className="
                   flex
                   items-start
@@ -487,26 +487,38 @@ export function Footer() {
           </div>
 
           {/* LEGAL */}
-          <div className="flex items-center gap-8">
+          {/* LEGAL */}
+<div className="flex items-center gap-8">
 
-            {['Privacy Policy', 'Terms of Service'].map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="
-                  text-white/40
-                  hover:text-[#C9A46A]
-                  transition-colors
-                  text-[11px]
-                  uppercase
-                  tracking-[0.25em]
-                "
-              >
-                {link}
-              </a>
-            ))}
+  <a
+    href="/privacy-policy"
+    className="
+      text-white/40
+      hover:text-[#C9A46A]
+      transition-colors
+      text-[11px]
+      uppercase
+      tracking-[0.25em]
+    "
+  >
+    Privacy Policy
+  </a>
 
-          </div>
+  <a
+    href="/terms-of-service"
+    className="
+      text-white/40
+      hover:text-[#C9A46A]
+      transition-colors
+      text-[11px]
+      uppercase
+      tracking-[0.25em]
+    "
+  >
+    Terms of Service
+  </a>
+
+</div>
 
         </motion.div>
 

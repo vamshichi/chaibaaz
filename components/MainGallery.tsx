@@ -39,8 +39,7 @@ function VideoCard({
         muted
         loop
         playsInline
-        preload="auto"
-        autoPlay
+        preload="metadata"
       >
         <source src={src} type="video/mp4" />
       </video>
@@ -67,8 +66,9 @@ export default function Gallery() {
 
   return (
     <section
-    id="gallery"
-     className="w-full bg-white py-20 px-4 sm:px-6 md:px-12 overflow-hidden">
+      id="gallery"
+      className="w-full bg-white py-20 px-4 sm:px-6 md:px-12 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
@@ -155,13 +155,14 @@ export default function Gallery() {
               "
             >
               {item.type === "image" ? (
-                <div className="relative h-[220px] sm:h-[280px] lg:h-[300px] w-full overflow-hidden">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-stone-100">
                   <Image
                     src={item.src}
                     alt="Gallery"
                     fill
-                    priority
-                    unoptimized
+                    priority={item.id <= 10}
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    quality={100}
                     className="object-cover"
                   />
                 </div>
