@@ -20,7 +20,7 @@ const SERVICES = [
     title: 'Event Catering',
     description:
       'Premium hospitality experiences curated for grand corporate and luxury private events.',
-    image: '/gallery/event.png',
+    image: '/gallery/e1.png',
   },
   {
     number: '03',
