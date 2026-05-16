@@ -33,16 +33,25 @@ function VideoCard({
   onPlay: (src: string) => void;
 }) {
   return (
-    <div className="relative h-[220px] sm:h-[280px] lg:h-[300px] w-full overflow-hidden">
+    <div className="relative h-[220px] sm:h-[280px] lg:h-[300px] w-full overflow-hidden rounded-2xl bg-black">
+      
+      {/* Video Preview */}
       <video
         className="h-full w-full object-cover"
         muted
         loop
+        autoPlay
         playsInline
-        preload="metadata"
+        preload="auto"
+        controls={false}
+        disablePictureInPicture
+        webkit-playsinline="true"
       >
         <source src={src} type="video/mp4" />
       </video>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/20 z-[1]" />
 
       {/* Play Button */}
       <button
@@ -54,9 +63,6 @@ function VideoCard({
           <Play className="w-5 h-5 sm:w-7 sm:h-7 text-black fill-black ml-0.5" />
         </div>
       </button>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
     </div>
   );
 }
