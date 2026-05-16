@@ -27,7 +27,7 @@ const TOKEN = {
 ───────────────────────────────────────────── */
 const GALLERY = [
   {
-    image: '/gallery/e1.png',
+    image: '/gallery/e1.jpg',
     index: '01',
     label: 'Weddings',
     title: 'Luxury\nWedding Setup',

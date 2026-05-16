@@ -13,7 +13,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/chaibaaz.ca?igsh=MWdmZm8wdmllYXdyYQ==', label: 'Instagram' },
   ];
 
   const quickLinks = [

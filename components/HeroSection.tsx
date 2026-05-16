@@ -14,7 +14,7 @@ import {
 const BACKGROUNDS = [
   '/images/herobg-1.png',
   '/images/chai-cart.jpg',
-  '/gallery/e1.png',
+  '/gallery/e1.jpg',
 ];
 
 const STORY = [
@@ -52,10 +52,10 @@ function BgImage({
     index === 0
       ? useTransform(progress, [0, 0.1, 0.2], [1, 1, 0])
       : useTransform(
-          progress,
-          [start, start + 0.1, end - 0.1, end],
-          [0, 1, 1, 0]
-        );
+        progress,
+        [start, start + 0.1, end - 0.1, end],
+        [0, 1, 1, 0]
+      );
 
   const scale = useTransform(progress, [start, end], [1.05, 1.15]);
 
@@ -94,20 +94,20 @@ function StoryPanel({
   const opacity =
     index === 0
       ? useTransform(
-          progress,
-          [0, item.range[1] - 0.05, item.range[1]],
-          [1, 1, 0]
-        )
+        progress,
+        [0, item.range[1] - 0.05, item.range[1]],
+        [1, 1, 0]
+      )
       : useTransform(
-          progress,
-          [
-            item.range[0],
-            item.range[0] + 0.08,
-            item.range[1] - 0.08,
-            item.range[1],
-          ],
-          [0, 1, 1, 0]
-        );
+        progress,
+        [
+          item.range[0],
+          item.range[0] + 0.08,
+          item.range[1] - 0.08,
+          item.range[1],
+        ],
+        [0, 1, 1, 0]
+      );
 
   const y =
     index === 0
@@ -120,8 +120,8 @@ function StoryPanel({
       style={{ opacity, y }}
     >
       <p className="mb-4 sm:mb-6 text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.5em] text-white/70 whitespace-nowrap">
-  — Chaibaaz —
-</p>
+        — Chaibaaz —
+      </p>
 
       <h1
         className="text-white font-light leading-[0.92]"
@@ -222,9 +222,8 @@ export default function CinematicHero() {
     <section
       ref={containerRef}
       id="home"
-      className={`relative ${
-        isMobile ? 'h-screen' : 'h-[350vh]'
-      } bg-[#0A0604] isolate`}
+      className={`relative ${isMobile ? 'h-screen' : 'h-[350vh]'
+        } bg-[#0A0604] isolate`}
       style={{
         background:
           'radial-gradient(circle at center, #1A120D 0%, #0A0604 70%)',
@@ -301,7 +300,7 @@ export default function CinematicHero() {
                 className="absolute w-full max-w-5xl px-6 sm:px-10"
               >
                 <p className="mb-4 text-[9px] uppercase tracking-[0.3em] text-white/70">
-                  Chaibaaz Luxury Experiences
+                  — Chaibaaz —
                 </p>
 
                 <h1
@@ -323,26 +322,26 @@ export default function CinematicHero() {
                 </p>
 
                 {activeSlide === STORY.length - 1 && (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    className="mt-10"
-  >
-    <a href="/#booking">
-      <motion.button
-        className="px-7 py-3 rounded-full text-[#2A160D] tracking-[0.2em] text-[11px] uppercase"
-        style={{
-          background:
-            'linear-gradient(135deg, #C9A46A 0%, #F0D6A2 50%, #B88B4A 100%)',
-        }}
-        whileTap={{ scale: 0.96 }}
-      >
-        Book Experience
-      </motion.button>
-    </a>
-  </motion.div>
-)}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="mt-10"
+                  >
+                    <a href="/#booking">
+                      <motion.button
+                        className="px-7 py-3 rounded-full text-[#2A160D] tracking-[0.2em] text-[11px] uppercase"
+                        style={{
+                          background:
+                            'linear-gradient(135deg, #C9A46A 0%, #F0D6A2 50%, #B88B4A 100%)',
+                        }}
+                        whileTap={{ scale: 0.96 }}
+                      >
+                        Book Experience
+                      </motion.button>
+                    </a>
+                  </motion.div>
+                )}
               </motion.div>
             </AnimatePresence>
           ) : (
